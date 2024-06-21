@@ -1,0 +1,60 @@
+
+*{
+    margin:0px;
+    padding:0px
+}
+h3{
+    text-align: center;
+    color:#0071ad;
+
+}
+.register-emp{
+    width:400px;
+    margin:auto;
+    background-color: #f1f1f1;
+    padding:20px;
+    border-radius: 3px;
+}
+.form-group label,.form-group input,.form-group select{
+    width:100%;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.form-group input{
+    padding: 0px 10px;
+}
+.form-group label{
+    color:#0071ad;
+    margin: 10px 0px;
+    display: block;
+}
+button:disabled {
+    background-color: #ccc !important;
+    cursor:not-allowed !important;
+    border:0px !important
+}
+.form-group input,.form-group select{
+    width:80%;
+    border:1px solid #555;
+    height: 35px;
+}
+.form-group select{
+    width:85%;
+}
+
+.invalid-feedback{
+    color:red;
+    margin-top:7px;
+}
+.submit{
+    margin-top: 20px;
+}
+.submit button{
+    width:150px;
+    height:40px;
+    text-align: center;
+    background-color: #0071ad;
+    color: #fff;
+    border:1px solid #333;
+    cursor: pointer;
+}

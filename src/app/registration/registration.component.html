@@ -1,0 +1,68 @@
+<div class="register-emp">
+    <h3>Employer Registration Form</h3>
+<form [formGroup]="empForm">
+    <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" formControlName="Name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Name.errors }" />
+        <div *ngIf="submitted && f.Name.errors" class="invalid-feedback">
+            <div *ngIf="f.Name.errors.required">First Name is required</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Name">Company Name</label>
+        <input type="text" formControlName="CompanyName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.CompanyName.errors }" />
+        <div *ngIf="submitted && f.CompanyName.errors" class="invalid-feedback">
+            <div *ngIf="f.CompanyName.errors.required">Company Name is required</div>
+        </div>
+    </div>
+
+    
+    <div class="form-group">
+        <label for="Name">Email Id</label>
+        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" (blur)="checkEmailExist($event)" />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+        </div>
+        <div class="invalid-feedback" *ngIf="isEmailAlreadyExits">
+        Email Already Exist
+        </div>
+        
+    </div>
+
+    
+    <div class="form-group">
+        <label for="Name">Contact No</label>
+        <input type="text" formControlName="phoneno" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneno.errors }" />
+        <div *ngIf="submitted && f.phoneno.errors" class="invalid-feedback">
+            <div *ngIf="f.phoneno.errors.required">Contact No is required</div>
+            <div *ngIf="f.phoneno.errors.pattern">Mobile No is Not Valid</div>
+
+        </div>
+    </div>
+
+    
+    <div class="form-group">
+        <label for="Name">Designation</label>
+<select formControlName="designation">
+    <option value="softwaredeveloper">Software Developer</option>
+    <option value="seniorsoftwaredeveloper">Senior Software Developer</option>
+    <option value="qualityAssurance">Quality Assurance</option>
+    <option value="teamlead">Team Lead</option>
+    <option value="manager">manager</option>
+</select>
+        <div *ngIf="submitted && f.designation.errors" class="invalid-feedback">
+            <div *ngIf="f.designation.errors.required">Designation is required</div>
+        </div>
+    </div>
+
+    <div class="form-group submit">
+        <button type="button" *ngIf="!updateButton" (click)="submitform()" [disabled]="isEmailAlreadyExits">Add Employee</button>
+        <button type="button" *ngIf="updateButton" (click)="updateEmp()" [disabled]="isEmailAlreadyExits">Update</button>
+
+    </div>
+
+
+</form>
+</div>

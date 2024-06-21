@@ -1,0 +1,29 @@
+<div class="viewEmp">
+    <h3>Registered Employee Details</h3>
+    <a routerLink="/addNewEmployee" class="add">Add New Employee</a>
+    <table>
+        <thead>
+        <tr>
+                <th>Emp Name</th>
+                <th>CompanyName</th>
+                <th>Email</th>
+                <th>Mobile No</th>
+                <th>Designation</th>
+                <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of isEMPData">
+            <td>{{data.Name}}</td>
+            <td>{{data.CompanyName}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.phoneno}}</td>
+            <td>{{data.designation}}</td>
+            <td>
+                <span class="edit" (click)="editEmpDetail(data.email)">Edit</span>
+                <span class="edit" (click)="deleteEmp(data.email)">Delete</span>
+            </td>
+        </tr>
+    </tbody>
+    </table>
+</div>
